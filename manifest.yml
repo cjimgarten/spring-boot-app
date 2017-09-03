@@ -1,0 +1,16 @@
+---
+applications:
+
+# DEV
+- name: spring-boot-app
+  path: ./target/spring-boot-app-1.0-SNAPSHOT.jar
+  buildpack: java_buildpack
+  memory: 768MB
+  instances: 1
+  host: cjimgarten
+  random-route: true
+  services:
+    - spring-boot-app-ups
+  env:
+    spring.config.location: classpath:dev/application.properties
+    logging.config: classpath:dev/log4j2.xml
